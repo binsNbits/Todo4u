@@ -1,2 +1,6 @@
 venv/
 /venv
+todo/__pycache__/urls.cpython-39.pyc
+todo/__pycache__/views.cpython-39.pyc
+todo_main/__pycache__/views.cpython-39.pyc
+db.sqlite3
