@@ -26,7 +26,7 @@
             <h4>My Day</h4>
             <p class="text-muted">{% now "jS F Y" %}</p>
             {%for i in tasks%}
-            <div class="col-md-7 col-lg-7" style="height: 450px; width: auto; overflow: scroll;">
+            <div class="col-md-7 col-lg-7" style="height: 450px; overflow: scroll;">
 
                 <!-- List of all the tasks for the day -->
                 <div class="card m-1">
@@ -34,32 +34,13 @@
                          {{i.task}}
                         <span style="position: relative; float: right;">
                             <a href="{% url 'mark_as_done' i.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
-                            <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href = "{% url 'delete_task' i.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             <a href="{% url 'edit_task' i.pk %}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
                 </div>
-                {%endfor%}
-
             </div>
-            
-            
-            <div class="col-md-5 col-lg-5">
-                {% for i in completed_tasks %}
-                <h5>Completed Tasks</h5>
-                <!-- List of all the tasks that have completed -->
-                
-                
-                <div class="card m-1">
-                    <div class="card-body">
-                        <span style="position: relative; float: right;">
-                            <a href="{% url 'mark_as_undone' i.pk%}" class="btn btn-danger"><i class="fa-solid fa-clock-rotate-left"></i> x Mark as Unone</a>
-                        </span>
-                        {{i.task}}  
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+            {%endfor%}
             
             
         </div>
